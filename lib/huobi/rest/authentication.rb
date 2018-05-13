@@ -9,7 +9,6 @@ module Huobi
           "SignatureVersion"    =>  self.configuration.signature_version,
           "Timestamp"           =>  Time.now.utc.strftime("%Y-%m-%dT%H:%M:%S")
         }
-
         params                =   params.merge(auth)
         params["Signature"]   =   sign(method: method, path: path, params: params)
 

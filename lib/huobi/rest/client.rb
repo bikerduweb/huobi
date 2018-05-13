@@ -47,7 +47,7 @@ module Huobi
       end
 
       def request(path, method: :get, params: {}, data: {}, options: {})
-        path = path.gsub('/hadax/', '/') unless hadax?
+        path = path.to_s.gsub('/hadax/', '/') unless hadax?
 
         should_auth   =   options.fetch(:authenticate, false)
         user_agent    =   options.fetch(:user_agent, self.configuration.faraday.fetch(:user_agent, nil))
